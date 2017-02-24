@@ -122,6 +122,7 @@ col_clusters = sch.linkage(col_pairwise_dists,method='complete')
 
 # heatmap with row names
 fig = plt.figure(figsize=(5,8))
+# [0.20,1]表示水平两个区块为1:5的分割比例
 heatmapGS = gridspec.GridSpec(2,2,wspace=0.0,hspace=0.0,width_ratios=[0.20,1],height_ratios=[0.20,1])
 
 ### col dendrogram ###
@@ -139,6 +140,7 @@ heatmapAX = fig.add_subplot(heatmapGS[1,1])
 
 axi = heatmapAX.imshow(testDF.ix[row_denD['leaves'],col_denD['leaves']],interpolation='nearest',aspect='auto',origin='lower',cmap=plt.cm.coolwarm)
 
+## 添加grid的分割线
 plt.grid(ls='solid')
 clean_axis(heatmapAX)
 
